@@ -33,12 +33,12 @@ function HomePagTwo() {
           <h1 className="font-[600] text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] text-white">
             About us
           </h1>
-          <p className="text-[16px] sm:text-[18px] md:text-[20px] leading-7 sm:leading-8 mt-4 text-white">
+          <p className="text-[14px] sm:text-[16px] md:text-[18px] leading-7 sm:leading-8 mt-4 text-white">
             At Pixel Genesis, we’re passionate about turning ideas into impactful digital solutions.
             As a full-service technology partner, we specialize in website development, custom
             software development, and digital marketing, helping businesses thrive in the digital age.
           </p>
-          <p className="mt-6 sm:mt-8 text-[16px] sm:text-[18px] md:text-[20px] leading-7 sm:leading-8 text-white">
+          <p className="mt-6 sm:mt-8 text-[14px] sm:text-[16px] md:text-[18px] leading-7 sm:leading-8 text-white">
             Founded with a vision to simplify technology, we bring together creativity, innovation, and
             technical expertise to deliver tailored solutions that meet your unique business goals.
             Whether you're a startup looking for your first online presence or an enterprise in need

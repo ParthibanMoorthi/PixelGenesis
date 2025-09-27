@@ -14,7 +14,7 @@ export default function SplashScreen() {
   }, [navigate]);
 
   return (
-    <div className="relative z-10 flex items-center justify-center w-screen h-screen overflow-hidden">
+    <div className="relative z-10 flex items-center justify-center w-full h-screen overflow-hidden">
       <img src={saturn} alt="splash" className="w-[180vw] h-auto object-contain" />
     </div>
   );

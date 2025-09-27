@@ -3,6 +3,12 @@ import saturn from "../../../src/assets/saturn.svg";
 import HomePagTwo from "./HomePagTwo";
 import Lenis from "@studio-freight/lenis";
 import HomePagThree from "./HomePageThree";
+import HomePageFour from "./HomePageFour";
+import HomePageFive from "./HomePageFive";
+import HomePageSix from "./HomePageSix";
+import HomePageSeven from "./HomePageSeven";
+import HomePageEight from "./HomePageEight";
+import HomePageNine from "./HomePageNine";
 
 function HomePage() {
   const [animate, setAnimate] = useState(false);
@@ -12,22 +18,56 @@ function HomePage() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-    useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.5,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
+useEffect(() => {
+  const lenis = new Lenis({
+    duration: 1.5,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    smoothTouch: true,
+    smooth: true,
+  });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+  // ✅ Add keyboard control manually
+  const handleKeyDown = (e) => {
+    const scrollAmount = window.innerHeight * 0.3; // ~90% of viewport height
+
+    if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
+      e.preventDefault();
+      lenis.scrollTo(window.scrollY + scrollAmount);
     }
 
+    if (e.key === "ArrowUp" || e.key === "PageUp") {
+      e.preventDefault();
+      lenis.scrollTo(window.scrollY - scrollAmount);
+    }
+
+    if (e.key === "Home") {
+      e.preventDefault();
+      lenis.scrollTo(0);
+    }
+
+    if (e.key === "End") {
+      e.preventDefault();
+      lenis.scrollTo(document.body.scrollHeight);
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  function raf(time) {
+    lenis.raf(time);
     requestAnimationFrame(raf);
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+  }
+
+  requestAnimationFrame(raf);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+    lenis.destroy();
+  };
+}, []);
+
+
 
   return (
     <div className="overflow-hidden">
@@ -58,7 +98,7 @@ function HomePage() {
             <p
               className={`font-cocogoose text-white font-[600] leading-[1] transition-all duration-1000 ease-out
               ${animate ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}
-              text-[48px] sm:text-[60px] md:text-[72px]
+           text-[40px] sm:text-[52px] md:text-[60px]
             `}
               style={{ transitionDelay: "0ms" }}
             >
@@ -66,7 +106,7 @@ function HomePage() {
               <span
                 className={`block font-extralight transition-all duration-1000 ease-out
                 ${animate ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}
-                text-[40px] sm:text-[52px] md:text-[64px]
+                text-[32px] sm:text-[44px] md:text-[52px]
               `}
                 style={{ transitionDelay: "300ms" }}
               >
@@ -77,7 +117,7 @@ function HomePage() {
             <p
               className={`text-white/65 font-[400] mt-8 transition-all duration-1000 ease-out
                 ${animate ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}
-                text-[18px] sm:text-[20px] md:text-[22px]
+                 text-[16px] sm:text-[18px] md:text-[20px]
               `}
               style={{ transitionDelay: "600ms" }}
             >
@@ -89,7 +129,7 @@ function HomePage() {
             <p
               className={`text-white font-[400] mt-16 transition-all duration-1000 ease-out
                 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
-                text-[28px] sm:text-[32px] md:text-[36px]
+                text-[24px] sm:text-[28px] md:text-[32px]
               `}
               style={{ transitionDelay: "900ms" }}
             >
@@ -102,7 +142,7 @@ function HomePage() {
                 transform transition-opacity cursor-pointer duration-1000 ease-out
                 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
                 hover:bg-white hover:text-black transition-colors duration-300
-                text-[16px] sm:text-[18px] md:text-[20px]
+                text-[14px] sm:text-[16px] md:text-[18px]
               `}
               style={{ transitionDelay: "1200ms" }}
             >
@@ -119,6 +159,30 @@ function HomePage() {
 
         <div className="h-screen w-full overflow-hidden">
         <HomePagThree />
+      </div>
+
+          <div className="h-screen w-full overflow-hidden">
+        <HomePageFour />
+      </div>
+
+        <div className="h-screen w-full overflow-hidden">
+        <HomePageFive />
+      </div>
+      
+        <div className="h-screen w-full overflow-hidden">
+        <HomePageSix/>
+      </div>
+      
+        <div className="m-h-screen w-full overflow-hidden">
+        <HomePageSeven/>
+      </div>
+         
+        <div className="h-screen w-full overflow-hidden">
+        <HomePageEight/>
+      </div>
+            
+        <div className="min-h-screen w-full">
+        <HomePageNine/>
       </div>
     </div>
   );

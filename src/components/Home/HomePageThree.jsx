@@ -39,12 +39,18 @@ function HomePagThree() {
                     Core Services
                 </h1>
                 <div className="flex items-center gap-12 mt-8">
-                    {data.map((item, index) => (
-                        <div className="border border-white/20 h-64 rounded-[8px] px-6 py-4">
-                            <p className="font-[500] text-[26px] text-white">{item.name}</p>
-                            <p className="mt-4 font-[400] text-[20px] text-white">{item.description}</p>
-                        </div>
-                    ))}
+                 {data.map((item, index) => (
+  <div className="group relative h-64 rounded-[24px] px-6 py-4 bg-white/5 backdrop-blur-md border border-white/20 transition-all duration-500 hover:bg-white">
+    <p className="font-[600] text-[26px] text-white group-hover:text-black transition-colors duration-300">
+      {item.name}
+    </p>
+    <p className="mt-4 font-[400] text-[20px] text-white group-hover:text-black transition-colors duration-300">
+      {item.description}
+    </p>
+  </div>
+))}
+
+
                     <div>
                     </div>
 
