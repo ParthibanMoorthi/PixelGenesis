@@ -2,7 +2,7 @@
 export default function StarryBackground() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
-      {[...Array(800)].map((_, i) => (
+      {[...Array(500)].map((_, i) => (
         <span
           key={i}
           className="absolute rounded-full bg-white"

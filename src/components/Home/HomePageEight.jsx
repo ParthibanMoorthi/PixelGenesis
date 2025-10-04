@@ -77,7 +77,7 @@ function HomePageEight() {
   );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-12 py-16">
+    <div className="h-screen w-full flex flex-col items-center justify-center bg-black px-4 sm:px-6 lg:px-12 py-16">
       {/* Title */}
       <div className="w-full text-start mb-12 max-w-6xl">
         <h1 className="font-[600] text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] text-white">

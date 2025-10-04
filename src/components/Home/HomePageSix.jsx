@@ -9,13 +9,12 @@ function HomePageSix() {
   const lineRef = useRef(null);
   const dotsRef = useRef([]);
   const textsRef = useRef([]);
-
   const steps = ["hai", "hello", "happy", "bye"];
 
   useEffect(() => {
     const container = containerRef.current;
 
-    // Animate line from right to center when container enters viewport
+    // Animate line growing from right to center
     gsap.fromTo(
       lineRef.current,
       { width: 0 },
@@ -30,19 +29,45 @@ function HomePageSix() {
       }
     );
 
-    // Animate dots and text sequentially
+    // Animate each step
     steps.forEach((_, i) => {
       ScrollTrigger.create({
         trigger: container,
-        start: `top+=${i * 100} center`,
-        end: `top+=${(i + 1) * 100} center`,
+        start: `top+=${i * window.innerHeight} top`,
+        end: `top+=${(i + 1) * window.innerHeight} top`,
         onEnter: () => {
-          gsap.to(dotsRef.current[i], { x: -(i * 30), opacity: 1, duration: 0.5 });
-          gsap.to(textsRef.current[i], { opacity: 1, y: 0, duration: 0.5 });
+          // Dot moves along the line
+          gsap.to(dotsRef.current[i], {
+            x: -i * 60,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+
+          // Current text slides in from right
+          gsap.fromTo(
+            textsRef.current[i],
+            { x: 100, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
+          );
+
+          // Hide previous text
+          if (i > 0) {
+            gsap.to(textsRef.current[i - 1], {
+              x: -100,
+              opacity: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            });
+          }
         },
         onLeaveBack: () => {
+          // When scrolling up
           gsap.to(dotsRef.current[i], { opacity: 0, duration: 0.3 });
-          gsap.to(textsRef.current[i], { opacity: 0, y: -10, duration: 0.3 });
+          gsap.to(textsRef.current[i], { x: 100, opacity: 0, duration: 0.3 });
+          if (i > 0) {
+            gsap.to(textsRef.current[i - 1], { x: 0, opacity: 1, duration: 0.6 });
+          }
         },
       });
     });
@@ -54,7 +79,7 @@ function HomePageSix() {
       className="h-screen w-full relative flex flex-col items-center justify-center overflow-hidden"
     >
       {/* Title */}
-      <div className="px-4 sm:px-6 md:px-6 lg:px-12 w-full text-center">
+      <div className="px-4 sm:px-6 md:px-6 lg:px-12 w-full text-start">
         <h1 className="font-[600] text-[32px] sm:text-[36px] md:text-[40px] lg:text-[44px] text-white">
           Our Work Process
         </h1>
@@ -69,8 +94,7 @@ function HomePageSix() {
         {/* Line */}
         <div
           ref={lineRef}
-          className="absolute h-1 bg-white top-1/2 right-0"
-          style={{ transform: "translateX(0%)" }}
+          className="absolute h-1 bg-white top-1/2 right-0 origin-right"
         />
 
         {/* Dots */}
@@ -84,13 +108,12 @@ function HomePageSix() {
         ))}
 
         {/* Texts */}
-        <div className="absolute top-16 text-white text-lg flex flex-col items-center">
+        <div className="absolute top-16 flex flex-col items-center w-full">
           {steps.map((step, i) => (
             <p
               key={i}
               ref={(el) => (textsRef.current[i] = el)}
-              className="absolute opacity-0"
-              style={{ y: -10 }}
+              className="absolute text-white text-lg opacity-0 w-full text-center"
             >
               {step}
             </p>

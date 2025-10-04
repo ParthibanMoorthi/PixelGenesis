@@ -24,17 +24,15 @@ function HomePageSeven() {
         {data.map((item) => (
           <div key={item.id} className="w-full cursor-pointer">
             {/* Question */}
-            <div  onClick={() => toggleFAQ(item.id)}
+            <div onClick={() => toggleFAQ(item.id)}
               className="flex justify-between items-center py-4 sm:py-5 border-b border-white/20 transition-colors duration-700"
-            
             >
               <h2 className="text-white font-semibold text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-6 sm:leading-7 md:leading-8">
                 {item.question}
               </h2>
               <span
-                className={`text-white text-2xl sm:text-3xl md:text-3xl transition-transform duration-700 ${
-                  openId === item.id ? "rotate-45" : "rotate-0"
-                }`}
+                className={`text-white text-2xl sm:text-3xl md:text-3xl transition-transform duration-700 ${openId === item.id ? "rotate-45" : "rotate-0"
+                  }`}
               >
                 <AiOutlinePlus />
               </span>
@@ -42,14 +40,14 @@ function HomePageSeven() {
 
             {/* Answer */}
             <div
-              className={`overflow-hidden transition-all duration-1000 ${
-                openId === item.id ? "max-h-80 sm:max-h-96" : "max-h-0"
-              }`}
+              className={`overflow-hidden transition-all duration-700 ${openId === item.id ? "max-h-[500px]" : "max-h-0"
+                }`}
             >
               <p className="text-white mt-2 sm:mt-3 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] leading-6 sm:leading-7 md:leading-8">
                 {item.answer}
               </p>
             </div>
+
           </div>
         ))}
       </div>

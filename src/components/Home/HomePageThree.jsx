@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import robot from "../../../src/assets/robot.svg";
 
 function HomePagThree() {
     const [animate, setAnimate] = useState(false);
@@ -39,20 +38,30 @@ function HomePagThree() {
                     Core Services
                 </h1>
                 <div className="flex items-center gap-12 mt-8">
-                 {data.map((item, index) => (
-  <div className="group relative h-64 rounded-[24px] px-6 py-4 bg-white/5 backdrop-blur-md border border-white/20 transition-all duration-500 hover:bg-white">
-    <p className="font-[600] text-[26px] text-white group-hover:text-black transition-colors duration-300">
-      {item.name}
-    </p>
-    <p className="mt-4 font-[400] text-[20px] text-white group-hover:text-black transition-colors duration-300">
-      {item.description}
-    </p>
-  </div>
-))}
-
-
-                    <div>
-                    </div>
+                    {data.map((item, index) => (
+                        <div key={index} className="relative w-full h-64 group cursor-pointer">
+                            <svg
+                                className="absolute inset-0 w-full h-full"
+                                viewBox="0 0 100 100"
+                                preserveAspectRatio="none"
+                            >
+                                <path
+                                    d="M 8 0 H 72 L 100 18 V 92 A 8 8 0 0 1 92 100 H 8 A 8 8 0 0 1 0 92 V 8 A 8 8 0 0 1 8 0 Z"
+                                    fill="rgba(255,255,255,0.05)"
+                                    stroke="rgba(255,255,255,0.2)"
+                                    strokeWidth="0.8"
+                                />
+                            </svg>
+                            <div className="relative z-10 px-6 py-4 flex flex-col h-full">
+                                <p className="font-[600] text-[26px] text-white group-hover:text-white transition-colors duration-300">
+                                    {item.name}
+                                </p>
+                                <p className="mt-4 font-[400] text-[20px] text-white group-hover:text-white transition-colors duration-300">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
 
                 </div>
 

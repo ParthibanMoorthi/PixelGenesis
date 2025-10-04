@@ -9,67 +9,19 @@ import HomePageSix from "./HomePageSix";
 import HomePageSeven from "./HomePageSeven";
 import HomePageEight from "./HomePageEight";
 import HomePageNine from "./HomePageNine";
+import FullScreenLayout from "../FullScreenLayout";
 
 function HomePage() {
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    const frame = requestAnimationFrame(() => setAnimate(true));
-    return () => cancelAnimationFrame(frame);
+    const timer = setTimeout(() => setAnimate(true), 50);
+    return () => clearTimeout(timer);
   }, []);
-
-useEffect(() => {
-  const lenis = new Lenis({
-    duration: 1.5,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-    smoothTouch: true,
-    smooth: true,
-  });
-
-  // ✅ Add keyboard control manually
-  const handleKeyDown = (e) => {
-    const scrollAmount = window.innerHeight * 0.3; // ~90% of viewport height
-
-    if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
-      e.preventDefault();
-      lenis.scrollTo(window.scrollY + scrollAmount);
-    }
-
-    if (e.key === "ArrowUp" || e.key === "PageUp") {
-      e.preventDefault();
-      lenis.scrollTo(window.scrollY - scrollAmount);
-    }
-
-    if (e.key === "Home") {
-      e.preventDefault();
-      lenis.scrollTo(0);
-    }
-
-    if (e.key === "End") {
-      e.preventDefault();
-      lenis.scrollTo(document.body.scrollHeight);
-    }
-  };
-
-  window.addEventListener("keydown", handleKeyDown);
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
-
-  return () => {
-    window.removeEventListener("keydown", handleKeyDown);
-    lenis.destroy();
-  };
-}, []);
-
 
 
   return (
+     <FullScreenLayout>
     <div className="overflow-hidden">
       {/* Section 1: Splash/Home */}
       <div className="h-screen w-full overflow-hidden relative">
@@ -84,10 +36,7 @@ useEffect(() => {
           <img
             src={saturn}
             alt="splash"
-            className="
-              w-[180vw] sm:w-[140vw] md:w-[120vw] lg:w-[100vw] 
-              h-auto object-contain
-            "
+            className="w-[180vw] sm:w-[140vw] md:w-[120vw] lg:w-[100vw] h-auto object-contain"
           />
         </div>
 
@@ -98,16 +47,14 @@ useEffect(() => {
             <p
               className={`font-cocogoose text-white font-[600] leading-[1] transition-all duration-1000 ease-out
               ${animate ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}
-           text-[40px] sm:text-[52px] md:text-[60px]
-            `}
+              text-[40px] sm:text-[52px] md:text-[60px]`}
               style={{ transitionDelay: "0ms" }}
             >
               Welcome
               <span
                 className={`block font-extralight transition-all duration-1000 ease-out
                 ${animate ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}
-                text-[32px] sm:text-[44px] md:text-[52px]
-              `}
+                text-[32px] sm:text-[44px] md:text-[52px]`}
                 style={{ transitionDelay: "300ms" }}
               >
                 Voyager
@@ -117,8 +64,7 @@ useEffect(() => {
             <p
               className={`text-white/65 font-[400] mt-8 transition-all duration-1000 ease-out
                 ${animate ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}
-                 text-[16px] sm:text-[18px] md:text-[20px]
-              `}
+                text-[16px] sm:text-[18px] md:text-[20px]`}
               style={{ transitionDelay: "600ms" }}
             >
               Prepare for launch! Your journey to innovative software solutions
@@ -129,8 +75,7 @@ useEffect(() => {
             <p
               className={`text-white font-[400] mt-16 transition-all duration-1000 ease-out
                 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
-                text-[24px] sm:text-[28px] md:text-[32px]
-              `}
+                text-[24px] sm:text-[28px] md:text-[32px]`}
               style={{ transitionDelay: "900ms" }}
             >
               Innovate. Develop. Grow.
@@ -142,8 +87,7 @@ useEffect(() => {
                 transform transition-opacity cursor-pointer duration-1000 ease-out
                 ${animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
                 hover:bg-white hover:text-black transition-colors duration-300
-                text-[14px] sm:text-[16px] md:text-[18px]
-              `}
+                text-[14px] sm:text-[16px] md:text-[18px]`}
               style={{ transitionDelay: "1200ms" }}
             >
               Get Quote
@@ -152,39 +96,33 @@ useEffect(() => {
         </div>
       </div>
 
-    
+      {/* Other Sections */}
       <div className="h-screen w-full overflow-hidden">
         <HomePagTwo />
       </div>
-
-        <div className="h-screen w-full overflow-hidden">
+      <div className="h-screen w-full overflow-hidden">
         <HomePagThree />
       </div>
-
-          <div className="h-screen w-full overflow-hidden">
+      <div className="h-screen w-full overflow-hidden">
         <HomePageFour />
       </div>
-
-        <div className="h-screen w-full overflow-hidden">
+      <div className="h-screen w-full overflow-hidden">
         <HomePageFive />
       </div>
-      
-        <div className="h-screen w-full overflow-hidden">
-        <HomePageSix/>
+      <div className="h-screen w-full overflow-hidden">
+        <HomePageSix />
       </div>
-      
-        <div className="m-h-screen w-full overflow-hidden">
-        <HomePageSeven/>
+      <div className="h-screen w-full overflow-hidden">
+        <HomePageSeven />
       </div>
-         
-        <div className="h-screen w-full overflow-hidden">
-        <HomePageEight/>
+      <div className="h-screen w-full overflow-hidden">
+        <HomePageEight />
       </div>
-            
-        <div className="min-h-screen w-full">
-        <HomePageNine/>
+      <div className="min-h-screen w-full">
+        <HomePageNine />
       </div>
     </div>
+    </FullScreenLayout>
   );
 }
 
