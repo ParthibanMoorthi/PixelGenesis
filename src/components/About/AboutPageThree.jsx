@@ -17,7 +17,11 @@ function AboutPageThree() {
           observer.unobserve(entry.target);
         }
       },
+<<<<<<< HEAD
       { threshold: 0.3 }
+=======
+      { threshold: 0.2 }
+>>>>>>> f8e956a (Initial commit with GSAP rocket animations)
     );
 
     const el = ref.current;

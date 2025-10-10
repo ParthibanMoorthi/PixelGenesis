@@ -1,7 +1,11 @@
 // StarryBackground.jsx
 export default function StarryBackground() {
   return (
+<<<<<<< HEAD
     <div className="absolute inset-0 z-0 overflow-hidden">
+=======
+   <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+>>>>>>> f8e956a (Initial commit with GSAP rocket animations)
       {[...Array(500)].map((_, i) => (
         <span
           key={i}

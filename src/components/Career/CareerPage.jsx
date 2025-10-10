@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
+<<<<<<< HEAD
 import sun from "../../assets/sun.svg";
 import mercury from "../../assets/mercury.svg";
 import venus from "../../assets/venus.svg";
 import earth from "../../assets/earth.svg";
 import mars from "../../assets/mars.svg";
 import mask from "../../assets/Mask.svg";
+=======
+import sun from "../../assets/sun.png";
+import mercury from "../../assets/mercury.png";
+import venus from "../../assets/venus.png";
+import earth from "../../assets/earth.png";
+import mars from "../../assets/mars.png";
+import mask from "../../assets/Mask.png";
+>>>>>>> f8e956a (Initial commit with GSAP rocket animations)
 import FullScreenLayout from "../FullScreenLayout";
 import Footer from "../Footer";
 import CareerPageTwo from "./CareerPageTwo";

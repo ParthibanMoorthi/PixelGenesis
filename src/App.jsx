@@ -2,26 +2,45 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import StarryBackground from "./components/StarryBackground";
 import HomePage from "./components/Home/HomePage";
 import Header from "./components/Header";
+<<<<<<< HEAD
 import "slick-carousel/slick/slick.css"; 
+=======
+import "slick-carousel/slick/slick.css";
+>>>>>>> f8e956a (Initial commit with GSAP rocket animations)
 import "slick-carousel/slick/slick-theme.css";
 import AboutPage from "./components/About/AboutPage";
 import ServicePage from "./components/Service/ServicePage";
 import CareerPage from "./components/Career/CareerPage";
 import HeaderLink from "./components/HeaderLink";
+<<<<<<< HEAD
+=======
+import ContactPage from "./components/Contact/ContactPage";
+>>>>>>> f8e956a (Initial commit with GSAP rocket animations)
 
 function App() {
   return (
     <Router basename="/PixelGenesis">
       <div className="relative bg-black">
         <StarryBackground />
+<<<<<<< HEAD
         <HeaderLink/>
+=======
+        <HeaderLink />
+>>>>>>> f8e956a (Initial commit with GSAP rocket animations)
         <Header />
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<HomePage />} />
+<<<<<<< HEAD
             <Route path="/about/us" element={<AboutPage />} />
               <Route path="/services" element={<ServicePage />} />
                  <Route path="/careers" element={<CareerPage />} />
+=======
+          <Route path="/about/us" element={<AboutPage />} />
+          <Route path="/services" element={<ServicePage />} />
+          <Route path="/careers" element={<CareerPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+>>>>>>> f8e956a (Initial commit with GSAP rocket animations)
         </Routes>
       </div>
     </Router>
