@@ -1,8 +1,7 @@
-<<<<<<< HEAD
+
 import { Link } from "react-router-dom";
-=======
+
 import { NavLink } from "react-router-dom";
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
 import { useEffect, useState } from "react";
 
 function Header() {
@@ -13,18 +12,11 @@ function Header() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-<<<<<<< HEAD
-  return (
-    <header
-      className={`w-full fixed top-0 left-0 z-50 flex justify-center bg-black items-center px-6 py-5
-=======
-  const activeClass = "text-[#F4DB59]"; // active link color
-
+const activeClass = "text-[#F4DB59]";
   return (
     <header
       className={`w-full fixed top-0 left-0 z-50 flex justify-center items-center px-6 py-5
         bg-black/10 backdrop-blur-md
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
         transition-transform duration-1000 ease-out
         ${animate ? "translate-y-0 opacity-100" : "-translate-y-12 opacity-0"}
       `}
@@ -32,23 +24,8 @@ function Header() {
       <div className="flex items-center gap-12">
         {/* Navigation */}
         <nav className="hidden md:flex gap-6 lg:gap-12 text-white font-normal text-sm sm:text-base md:text-lg">
-<<<<<<< HEAD
-          <Link to="/home" className="hover:text-gray-300 transition-colors duration-300">
-            Home
-          </Link>
-          <Link to="/about/us" className="hover:text-gray-300 transition-colors duration-300">
-            About Us
-          </Link>
-          <Link to="/services" className="hover:text-gray-300 transition-colors duration-300">
-            Services
-          </Link>
-          <Link to="/careers" className="hover:text-gray-300 transition-colors duration-300">
-            Careers
-          </Link>
-          <Link to="/contact" className="hover:text-gray-300 transition-colors duration-300">
-            Contact
-          </Link>
-=======
+
+
           <NavLink
             to="/home"
             className={({ isActive }) =>
@@ -89,7 +66,6 @@ function Header() {
           >
             Contact
           </NavLink>
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
         </nav>
       </div>
 

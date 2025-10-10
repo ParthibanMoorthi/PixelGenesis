@@ -17,11 +17,7 @@ function AboutPageThree() {
           observer.unobserve(entry.target);
         }
       },
-<<<<<<< HEAD
       { threshold: 0.3 }
-=======
-      { threshold: 0.2 }
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
     );
 
     const el = ref.current;
@@ -29,13 +25,13 @@ function AboutPageThree() {
 
     observer.observe(el);
 
-    // ✅ Force a check after a short delay (Lenis may adjust scroll after mount)
+    // Force a check after a short delay (Lenis may adjust scroll after mount)
     const timeoutId = setTimeout(() => {
       if (el.getBoundingClientRect().top < window.innerHeight * 0.7) {
         setAnimate(true);
         observer.unobserve(el);
       }
-    }, 200); // 200ms gives Lenis time to initialize
+    }, 200); // 200ms delay to allow Lenis to initialize
 
     return () => {
       observer.disconnect();

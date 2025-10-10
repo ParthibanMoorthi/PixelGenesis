@@ -1,11 +1,7 @@
 import React from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { TbBrandX } from "react-icons/tb";
-<<<<<<< HEAD
-import earth from "../../../src/assets/earthOne.svg";
-=======
 import earth from "../../../src/assets/earthBg.png";
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
 import logo from "../../../src/assets/logo.svg";
 import Footer from "../Footer";
 

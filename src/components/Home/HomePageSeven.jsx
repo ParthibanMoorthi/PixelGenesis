@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 "use client"; // For Next.js or SSR environments
 
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 
@@ -20,23 +17,11 @@ function HomePageSeven() {
   const toggleFAQ = (id) => setOpenId(openId === id ? null : id);
 
   return (
-<<<<<<< HEAD
-    <div className="min-h-screen w-full flex flex-col items-start px-4 sm:px-6 md:px-12 py-12 bg-black">
-=======
     <div className="z-20 min-h-screen w-full flex flex-col items-start px-4 sm:px-6 md:px-12 py-12 bg-black">
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
       <h1 className="font-[600] text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px] text-white text-center sm:text-left mb-8">
         Frequently Asked Questions (FAQs)
       </h1>
 
-<<<<<<< HEAD
-      <div className="w-full px-6 sm:px-8 md:px-16  flex flex-col space-y-4">
-        {data.map((item) => (
-          <div key={item.id} className="w-full cursor-pointer">
-            {/* Question */}
-            <div onClick={() => toggleFAQ(item.id)}
-              className="flex justify-between items-center py-4 sm:py-5 border-b border-white/20 transition-colors duration-700"
-=======
       <div className="w-full px-6 sm:px-8 md:px-16 flex flex-col space-y-4">
         {data.map((item) => (
           <div key={item.id} className="w-full">
@@ -44,37 +29,28 @@ function HomePageSeven() {
             <button
               onClick={() => toggleFAQ(item.id)}
               className="w-full flex justify-between items-center py-4 sm:py-5 border-b border-white/20 transition-colors duration-700 cursor-pointer"
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
+              aria-expanded={openId === item.id}
+              aria-controls={`faq-answer-${item.id}`}
             >
               <h2 className="text-white font-semibold text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] leading-6 sm:leading-7 md:leading-8">
                 {item.question}
               </h2>
               <span
-                className={`text-white text-2xl sm:text-3xl md:text-3xl transition-transform duration-700 ${openId === item.id ? "rotate-45" : "rotate-0"
-                  }`}
+                className={`text-white text-2xl sm:text-3xl md:text-3xl transition-transform duration-700 ${openId === item.id ? "rotate-45" : "rotate-0"}`}
               >
                 <AiOutlinePlus />
               </span>
-<<<<<<< HEAD
-            </div>
-=======
             </button>
-
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
 
             {/* Answer */}
             <div
-              className={`overflow-hidden transition-all duration-700 ${openId === item.id ? "max-h-[500px]" : "max-h-0"
-                }`}
+              id={`faq-answer-${item.id}`}
+              className={`overflow-hidden transition-all duration-700 ${openId === item.id ? "max-h-[500px] mt-2 sm:mt-3" : "max-h-0"}`}
             >
-              <p className="text-white mt-2 sm:mt-3 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] leading-6 sm:leading-7 md:leading-8">
+              <p className="text-white text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] leading-6 sm:leading-7 md:leading-8">
                 {item.answer}
               </p>
             </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
           </div>
         ))}
       </div>

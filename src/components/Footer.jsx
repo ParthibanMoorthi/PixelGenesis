@@ -66,12 +66,9 @@ function Footer() {
             <FaInstagram />
           </a>
         </div>
-<<<<<<< HEAD
-=======
 
          <p className="mt-2 text-center text-[14px] sm:text-[15px] text-white font-[400]">WAC ©2025 All rights reserved</p>
 
->>>>>>> f8e956a (Initial commit with GSAP rocket animations)
       </section>
     </div>
   );
