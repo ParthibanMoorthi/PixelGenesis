@@ -21,7 +21,7 @@ function ServicePageOne() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full relative flex flex-col items-center overflow-hidden bg-black">
+    <div className="min-h-screen w-full relative flex flex-col items-center overflow-hidden">
       {/* UFO */}
       <img
         src={ufo}
